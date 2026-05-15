@@ -60,7 +60,7 @@ button {
   justify-content: space-between;
   margin: 0 auto;
   max-width: 1220px;
-  padding: 20px 24px 10px;
+  padding: 14px 24px 6px;
   position: relative;
   z-index: 2;
 }
@@ -93,7 +93,7 @@ nav {
 main {
   margin: 0 auto;
   max-width: 1220px;
-  padding: 0 24px 40px;
+  padding: 0 24px 14px;
   position: relative;
   z-index: 1;
 }
@@ -101,10 +101,10 @@ main {
 .hero {
   align-items: center;
   display: grid;
-  gap: 34px;
+  gap: 28px;
   grid-template-columns: minmax(0, 0.93fr) minmax(430px, 1.07fr);
-  min-height: calc(100vh - 70px);
-  padding: 10px 0 18px;
+  min-height: calc(100svh - 56px);
+  padding: 6px 0 10px;
 }
 
 .hero-copy {
@@ -116,7 +116,7 @@ main {
   border-radius: 8px;
   display: block;
   height: auto;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
   max-width: 340px;
   padding: 8px 12px;
   width: min(100%, 340px);
@@ -138,9 +138,9 @@ p {
 }
 
 h1 {
-  font-size: clamp(56px, 8vw, 106px);
+  font-size: clamp(50px, 7vw, 88px);
   line-height: 0.9;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 h2 {
@@ -151,8 +151,8 @@ h2 {
 
 .hero-copy > p:not(.eyebrow) {
   color: #f0e3d3;
-  font-size: clamp(18px, 2.4vw, 25px);
-  line-height: 1.35;
+  font-size: clamp(17px, 2.1vw, 22px);
+  line-height: 1.3;
   max-width: 610px;
 }
 
@@ -163,7 +163,7 @@ h2 {
   font-weight: 900;
   justify-content: center;
   min-width: 170px;
-  padding: 13px 18px;
+  padding: 12px 18px;
   transition:
     border-color 160ms ease,
     transform 160ms ease,
@@ -192,7 +192,7 @@ h2 {
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 24px;
+  margin-top: 18px;
 }
 
 .feature-band article,
@@ -266,8 +266,8 @@ h2 {
 
 .feature-band article {
   background: rgba(16, 19, 18, 0.52);
-  min-height: 126px;
-  padding: 16px;
+  min-height: 104px;
+  padding: 14px;
 }
 
 .feature-band span {
@@ -282,7 +282,7 @@ h2 {
 .feature-band p {
   color: #d2c5b4;
   font-size: 14px;
-  line-height: 1.45;
+  line-height: 1.35;
   margin-bottom: 0;
 }
 
@@ -293,7 +293,7 @@ h2 {
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.35);
   display: grid;
   grid-template-columns: 66px 176px minmax(0, 1fr);
-  min-height: 560px;
+  min-height: 498px;
   overflow: hidden;
 }
 
@@ -378,7 +378,7 @@ h2 {
 
 .message-pane {
   display: grid;
-  gap: 14px;
+  gap: 12px;
   grid-template-rows: auto auto auto 1fr auto;
   padding: 18px;
 }
@@ -422,7 +422,7 @@ h2 {
   border: 1px solid rgba(255, 247, 236, 0.13);
   border-radius: 8px;
   display: flex;
-  min-height: 170px;
+  min-height: 136px;
   padding: 14px;
 }
 
