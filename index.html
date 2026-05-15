@@ -6,19 +6,21 @@
     <title>Porch</title>
     <meta
       name="description"
-      content="Porch is a cozy voice, video, and chat home for your favorite people."
+      content="Porch is a cozy voice, video, and chat home for friends."
     />
+    <link rel="icon" href="/porch-chat-icon.svg" />
+    <link rel="apple-touch-icon" href="/porch-chat-icon.svg" />
     <link rel="stylesheet" href="/styles.css" />
     <script src="/site.js" defer></script>
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="/" aria-label="Porch home">
-        <span class="brand-mark">P</span>
+        <img src="/porch-chat-icon.svg" alt="" />
         <span>Porch</span>
       </a>
       <nav>
-        <a href="#downloads">Download</a>
+        <a href="#download">Download</a>
         <a href="https://app.porch.chat">Open App</a>
       </nav>
     </header>
@@ -26,11 +28,12 @@
     <main>
       <section class="hero">
         <div class="hero-copy">
+          <img class="wordmark" src="/porch-chat-logo.svg" alt="Porch.chat" />
           <p class="eyebrow">Pull up. Talk awhile.</p>
-          <h1>Porch</h1>
+          <h1>Your place to hang out.</h1>
           <p>
-            Voice, video, screen share, spaces, and DMs for the people you
-            actually want to hang out with.
+            A private chat home for friends: spaces, DMs, voice, video, and
+            screen share in one cozy app.
           </p>
           <div class="actions">
             <a
@@ -42,80 +45,78 @@
             </a>
             <a class="button" href="https://app.porch.chat">Open in Browser</a>
           </div>
-          <p class="hint" id="download-hint">
-            Windows and Linux desktop builds are available now. Phones use the
-            web app.
-          </p>
+          <div class="feature-band" aria-label="Porch features">
+            <article>
+              <span>Spaces</span>
+              <p>Separate rooms for games, plans, watch nights, and whatever else is happening.</p>
+            </article>
+            <article>
+              <span>Calls</span>
+              <p>Voice, video, and screen share are built into the same place you chat.</p>
+            </article>
+            <article>
+              <span>Invites</span>
+              <p>Access stays intentional, so the Porch feels like your people.</p>
+            </article>
+          </div>
         </div>
 
-        <div class="chat-preview" aria-label="Porch preview">
-          <div class="preview-top">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="app-demo" aria-label="Porch app preview">
+          <div class="space-rail">
+            <img src="/porch-chat-icon.svg" alt="" />
+            <span class="rail-dot active">G</span>
+            <span class="rail-dot">M</span>
+            <span class="rail-dot">+</span>
           </div>
-          <div class="space-row active">
-            <strong>Friday porch</strong>
-            <small>Everyone is around</small>
-          </div>
-          <div class="message me">
-            <span>Dylan</span>
-            <p>Movie night after this?</p>
-          </div>
-          <div class="message">
-            <span>Sam</span>
-            <p>Already pulling up.</p>
-          </div>
-          <div class="call-strip">
-            <div>
-              <span class="pulse"></span>
-              Voice is live
+          <aside class="channel-list">
+            <strong>Game night</strong>
+            <button class="selected"># lobby</button>
+            <button># clips</button>
+            <button># plans</button>
+            <div class="voice-room">
+              <span class="live-dot"></span>
+              Lobby voice
+              <small>3 talking</small>
             </div>
-            <strong>4 friends</strong>
-          </div>
+          </aside>
+          <section class="message-pane">
+            <div class="demo-topbar">
+              <strong># lobby</strong>
+              <span>Tonight</span>
+            </div>
+            <div class="demo-message">
+              <span>Avery</span>
+              <p>We starting after dinner?</p>
+            </div>
+            <div class="demo-message me">
+              <span>Jordan</span>
+              <p>Yep, lobby is open.</p>
+            </div>
+            <div class="screen-tile">
+              <div>
+                <strong>Morgan's screen</strong>
+                <small>1440p · 60fps</small>
+              </div>
+            </div>
+            <div class="composer">Message #lobby</div>
+          </section>
         </div>
       </section>
 
-      <section class="feature-band" aria-label="Porch features">
-        <article>
-          <span>Spaces</span>
-          <p>Make separate hangouts for games, projects, or late-night chaos.</p>
-        </article>
-        <article>
-          <span>Calls</span>
-          <p>Jump into voice, video, and screen share without leaving chat.</p>
-        </article>
-        <article>
-          <span>Private</span>
-          <p>Run your own instance and keep the door as open or closed as you want.</p>
-        </article>
-      </section>
-
-      <section class="downloads" id="downloads">
-        <div class="section-heading">
-          <p class="eyebrow">Get Porch</p>
-          <h2>Pick your porch</h2>
+      <section class="download-panel" id="download">
+        <div>
+          <p class="eyebrow">Downloads</p>
+          <h2>Choose your app</h2>
         </div>
-        <div class="download-grid">
-          <a class="download-card featured" href="https://updates.porch.chat/download/windows/">
-            <span>Windows</span>
-            <strong>Installer</strong>
-            <small>Best choice for Windows PCs.</small>
-          </a>
-          <a class="download-card" href="https://updates.porch.chat/download/linux/appimage/">
-            <span>Linux</span>
-            <strong>AppImage</strong>
-            <small>Download, mark executable, and launch.</small>
-          </a>
-          <a class="download-card" href="https://updates.porch.chat/download/linux/deb/">
-            <span>Linux</span>
-            <strong>DEB</strong>
-            <small>For Debian and Ubuntu-style desktops.</small>
-          </a>
-          <a class="download-card" href="https://app.porch.chat">
-            <span>Phones</span>
-            <strong>Web app</strong>
-            <small>Open it, then install from your browser menu.</small>
+        <div class="download-picker">
+          <select id="download-select" aria-label="Choose download">
+            <option value="windows">Windows installer</option>
+            <option value="linux-appimage">Linux AppImage</option>
+            <option value="linux-deb">Linux DEB</option>
+            <option value="web">Phone or browser</option>
+          </select>
+          <a class="button primary" id="selected-download" href="https://updates.porch.chat/download/windows/">
+            Download
           </a>
         </div>
       </section>

@@ -1,24 +1,27 @@
 const downloads = {
   windows: {
     label: 'Download for Windows',
-    hint: 'Windows installer selected automatically.',
     url: 'https://updates.porch.chat/download/windows/'
   },
   linux: {
     label: 'Download for Linux',
-    hint: 'Linux AppImage selected automatically.',
     url: 'https://updates.porch.chat/download/linux/appimage/'
   },
   mobile: {
     label: 'Open Web App',
-    hint: 'Phones use the Porch web app. Install it from your browser menu.',
     url: 'https://app.porch.chat'
   },
   other: {
     label: 'Open Web App',
-    hint: 'Desktop downloads are available for Windows and Linux.',
     url: 'https://app.porch.chat'
   }
+};
+
+const downloadOptions = {
+  windows: 'https://updates.porch.chat/download/windows/',
+  'linux-appimage': 'https://updates.porch.chat/download/linux/appimage/',
+  'linux-deb': 'https://updates.porch.chat/download/linux/deb/',
+  web: 'https://app.porch.chat'
 };
 
 const detectPlatform = () => {
@@ -43,13 +46,26 @@ const detectPlatform = () => {
 
 const selected = downloads[detectPlatform()] || downloads.other;
 const smartDownload = document.querySelector('#smart-download');
-const hint = document.querySelector('#download-hint');
+const downloadSelect = document.querySelector('#download-select');
+const selectedDownload = document.querySelector('#selected-download');
 
 if (smartDownload) {
   smartDownload.href = selected.url;
   smartDownload.textContent = selected.label;
 }
 
-if (hint) {
-  hint.textContent = selected.hint;
+if (downloadSelect && selectedDownload) {
+  const platform = detectPlatform();
+
+  if (platform === 'linux') {
+    downloadSelect.value = 'linux-appimage';
+  } else if (platform === 'mobile' || platform === 'other') {
+    downloadSelect.value = 'web';
+  }
+
+  selectedDownload.href = downloadOptions[downloadSelect.value];
+
+  downloadSelect.addEventListener('change', () => {
+    selectedDownload.href = downloadOptions[downloadSelect.value];
+  });
 }
