@@ -17,13 +17,6 @@ const downloads = {
   }
 };
 
-const downloadOptions = {
-  windows: 'https://updates.porch.chat/download/windows/',
-  'linux-appimage': 'https://updates.porch.chat/download/linux/appimage/',
-  'linux-deb': 'https://updates.porch.chat/download/linux/deb/',
-  web: 'https://app.porch.chat'
-};
-
 const detectPlatform = () => {
   const ua = navigator.userAgent.toLowerCase();
   const platform = (navigator.userAgentData?.platform || navigator.platform || '')
@@ -46,26 +39,49 @@ const detectPlatform = () => {
 
 const selected = downloads[detectPlatform()] || downloads.other;
 const smartDownload = document.querySelector('#smart-download');
-const downloadSelect = document.querySelector('#download-select');
-const selectedDownload = document.querySelector('#selected-download');
+const downloadMenu = document.querySelector('#download-menu');
+const downloadToggle = document.querySelector('#download-toggle');
+const downloadOptions = document.querySelector('#download-options');
 
 if (smartDownload) {
   smartDownload.href = selected.url;
   smartDownload.textContent = selected.label;
 }
 
-if (downloadSelect && selectedDownload) {
-  const platform = detectPlatform();
+const closeDownloadMenu = () => {
+  downloadMenu?.classList.remove('open');
+  downloadToggle?.setAttribute('aria-expanded', 'false');
+};
 
-  if (platform === 'linux') {
-    downloadSelect.value = 'linux-appimage';
-  } else if (platform === 'mobile' || platform === 'other') {
-    downloadSelect.value = 'web';
+const openDownloadMenu = () => {
+  downloadMenu?.classList.add('open');
+  downloadToggle?.setAttribute('aria-expanded', 'true');
+};
+
+downloadToggle?.addEventListener('click', (event) => {
+  event.stopPropagation();
+
+  if (downloadMenu?.classList.contains('open')) {
+    closeDownloadMenu();
+  } else {
+    openDownloadMenu();
   }
+});
 
-  selectedDownload.href = downloadOptions[downloadSelect.value];
+downloadOptions?.addEventListener('click', (event) => {
+  if (event.target instanceof HTMLAnchorElement) {
+    closeDownloadMenu();
+  }
+});
 
-  downloadSelect.addEventListener('change', () => {
-    selectedDownload.href = downloadOptions[downloadSelect.value];
-  });
-}
+document.addEventListener('click', (event) => {
+  if (!downloadMenu?.contains(event.target)) {
+    closeDownloadMenu();
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeDownloadMenu();
+  }
+});

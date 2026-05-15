@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="/styles.css" />
     <script src="/site.js" defer></script>
   </head>
-  <body>
+  <body id="top">
     <header class="site-header">
       <a class="brand" href="/" aria-label="Porch home">
         <img src="/porch-chat-icon.svg" alt="" />
         <span>Porch</span>
       </a>
       <nav>
-        <a href="#download">Download</a>
+        <a href="#top">Download</a>
         <a href="https://app.porch.chat">Open App</a>
       </nav>
     </header>
@@ -36,13 +36,31 @@
             screen share in one cozy app.
           </p>
           <div class="actions">
-            <a
-              class="button primary"
-              id="smart-download"
-              href="https://updates.porch.chat/download/windows/"
-            >
-              Download for Windows
-            </a>
+            <div class="download-menu" id="download-menu">
+              <a
+                class="button primary download-main"
+                id="smart-download"
+                href="https://updates.porch.chat/download/windows/"
+              >
+                Download for Windows
+              </a>
+              <button
+                class="download-toggle"
+                id="download-toggle"
+                type="button"
+                aria-label="Choose another download"
+                aria-expanded="false"
+                aria-controls="download-options"
+              >
+                v
+              </button>
+              <div class="download-options" id="download-options" role="menu">
+                <a role="menuitem" href="https://updates.porch.chat/download/windows/">Windows installer</a>
+                <a role="menuitem" href="https://updates.porch.chat/download/linux/appimage/">Linux AppImage</a>
+                <a role="menuitem" href="https://updates.porch.chat/download/linux/deb/">Linux DEB</a>
+                <a role="menuitem" href="https://app.porch.chat">Open web app</a>
+              </div>
+            </div>
             <a class="button" href="https://app.porch.chat">Open in Browser</a>
           </div>
           <div class="feature-band" aria-label="Porch features">
@@ -103,23 +121,6 @@
         </div>
       </section>
 
-      <section class="download-panel" id="download">
-        <div>
-          <p class="eyebrow">Downloads</p>
-          <h2>Choose your app</h2>
-        </div>
-        <div class="download-picker">
-          <select id="download-select" aria-label="Choose download">
-            <option value="windows">Windows installer</option>
-            <option value="linux-appimage">Linux AppImage</option>
-            <option value="linux-deb">Linux DEB</option>
-            <option value="web">Phone or browser</option>
-          </select>
-          <a class="button primary" id="selected-download" href="https://updates.porch.chat/download/windows/">
-            Download
-          </a>
-        </div>
-      </section>
     </main>
   </body>
 </html>
